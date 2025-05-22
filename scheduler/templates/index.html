@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orchestrator Scheduler</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+<h1>Welcome {{ user['name'] }}</h1>
+<a href="/logout">Logout</a>
+<h2>Schedules</h2>
+<table>
+    <tr><th>Folder</th><th>Process</th><th>Robot</th><th>Environment</th><th>Next Run</th></tr>
+    {% for s in schedules %}
+    <tr>
+        <td>{{ s.FolderName }}</td>
+        <td>{{ s.ProcessName }}</td>
+        <td>{{ s.RobotName }}</td>
+        <td>{{ s.EnvironmentName }}</td>
+        <td>{{ s.NextStartTime }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Service Breaks</h2>
+<ul>
+{% for b in breaks %}
+    <li>{{ b.start }} - {{ b.end }} : {{ b.title }} ({{ b.reason }})</li>
+{% endfor %}
+</ul>
+<form action="/add_break" method="post">
+    <h3>Add Break</h3>
+    <label>Title: <input name="title"></label><br>
+    <label>Start: <input name="start" type="datetime-local"></label><br>
+    <label>End: <input name="end" type="datetime-local"></label><br>
+    <label>Reason: <input name="reason"></label><br>
+    <button type="submit">Add</button>
+</form>
+</body>
+</html>

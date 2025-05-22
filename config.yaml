@@ -1,0 +1,11 @@
+aad:
+  client_id: YOUR_AAD_CLIENT_ID
+  client_secret: YOUR_AAD_CLIENT_SECRET
+  tenant_id: YOUR_AAD_TENANT_ID
+orchestrator:
+  url: https://platform.uipath.com/yourorg
+  tenant: default
+  client_id: YOUR_ORCH_CLIENT_ID
+  user_key: YOUR_ORCH_USER_KEY
+  refresh_token: YOUR_ORCH_REFRESH_TOKEN
+flask_secret: change_me
